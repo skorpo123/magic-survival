@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://ow8yuqg0gh7u"]
+
+[ext_resource type="Script" uid="uid://do0piqyckql3q" path="res://Main.gd" id="0_main"]
+[ext_resource type="PackedScene" uid="uid://bw4v1oeyb1bqd" path="res://player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://clla15sla10pe" path="res://World/Procedural/WorldManager.gd" id="2_world_mgr"]
+[ext_resource type="Script" uid="uid://ugv2kggdexbk" path="res://Systems/Waves/WaveManager.gd" id="3_wave_mgr"]
+[ext_resource type="Script" uid="uid://ctkgxoe71f0eq" path="res://Systems/LevelUpManager.gd" id="4_lvl_mgr"]
+[ext_resource type="Script" uid="uid://dyp85v2w3kagb" path="res://UI/HUD.gd" id="6_hud"]
+[ext_resource type="Script" uid="uid://8mdokjgdiahw" path="res://UI/LevelUpScreen.gd" id="7_lvl_ui"]
+[ext_resource type="Script" uid="uid://q4erijofner6" path="res://UI/MainMenu.gd" id="8_menu"]
+[ext_resource type="Script" uid="uid://ddnsn860mktyp" path="res://UI/GameOverScreen.gd" id="9_over"]
+[ext_resource type="Script" uid="uid://cdlty0sg5ir84" path="res://UI/PauseMenu.gd" id="10_pause"]
+[ext_resource type="Script" uid="uid://cck1lt36s3kix" path="res://UI/ModificationScreen.gd" id="11_mod_ui"]
+[ext_resource type="Script" uid="uid://b6tgcj1417oqu" path="res://UI/VictoryScreen.gd" id="12_victory"]
+[ext_resource type="Shader" uid="uid://nm6f5vf8xbhy" path="res://Shaders/color_correction.gdshader" id="14_corr"]
+[ext_resource type="Script" uid="uid://behgb88l8wh1a" path="res://UI/ArtifactSelectScreen.gd" id="15_artifact"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_correction"]
+shader = ExtResource("14_corr")
+shader_parameter/contrast = 1.15
+shader_parameter/saturation = 1.25
+shader_parameter/vignette_strength = 0.45
+shader_parameter/vignette_radius = 0.7
+
+[node name="Main" type="Node2D" unique_id=681565826]
+script = ExtResource("0_main")
+
+[node name="WorldManager" type="Node2D" parent="." unique_id=854452348]
+script = ExtResource("2_world_mgr")
+
+[node name="Player" parent="." unique_id=1326106273 instance=ExtResource("1_player")]
+
+[node name="Systems" type="Node2D" parent="." unique_id=73671695]
+
+[node name="WaveManager" type="Node2D" parent="Systems" unique_id=644456977]
+script = ExtResource("3_wave_mgr")
+
+[node name="LevelUpManager" type="Node2D" parent="Systems" unique_id=1303547457 groups=["level_up_manager"]]
+script = ExtResource("4_lvl_mgr")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1186713930]
+layer = 20
+
+[node name="ColorFilter" type="ColorRect" parent="UI" unique_id=900000003]
+material = SubResource("ShaderMaterial_correction")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HUD" type="Control" parent="UI" unique_id=2111815067 groups=["hud"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("6_hud")
+
+[node name="LevelUpScreen" type="Control" parent="UI" unique_id=858063882 groups=["level_up_ui"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("7_lvl_ui")
+
+[node name="MainMenu" type="Control" parent="UI" unique_id=666232005]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_menu")
+
+[node name="GameOverScreen" type="Control" parent="UI" unique_id=1954027718]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_over")
+
+[node name="VictoryScreen" type="Control" parent="UI" unique_id=701831437]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_victory")
+
+[node name="PauseMenu" type="Control" parent="UI" unique_id=666862112]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_pause")
+
+[node name="ModificationScreen" type="Control" parent="UI" unique_id=998877665 groups=["modification_ui"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("11_mod_ui")
+
+[node name="ArtifactSelectScreen" type="Control" parent="UI" unique_id=170817707]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("15_artifact")

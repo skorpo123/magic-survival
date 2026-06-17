@@ -1,0 +1,30 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+build/
+
+# Exported binaries
+*.exe
+*.pck
+
+# Editor temp / backup files
+*.tmp
+*.bak
+*.orig
+*.swp
+
+# Node tooling (kratos-mcp, opencode, testsprite) — not part of the Godot game
+node_modules/
+package-lock.json
+package.json
+opencode.json
+opencode.jsonc
+
+# Local test / log junk
+testsprite_tests/
+**/tmp/mcp.log
+
+# Agent configs
+.agents/
+.opencode/
+.superpowers/

@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://fire_breath_flame_001"]
+
+[ext_resource type="Script" uid="uid://bh04vf405l03a" path="res://addons/BurstParticles2D/BurstParticleGroup2D.gd" id="1_group"]
+[ext_resource type="Script" uid="uid://bncrsjsrl0kkx" path="res://addons/BurstParticles2D/BurstParticles2D.gd" id="2_burst"]
+[ext_resource type="Texture2D" uid="uid://ovw18l4dc1fv" path="res://addons/BurstParticles2D/BurstParticles2D-demo/orb.png" id="3_orb"]
+[ext_resource type="Texture2D" uid="uid://d2lceccxwhwet" path="res://addons/BurstParticles2D/BurstParticles2D-demo/ring.png" id="4_ring"]
+
+[sub_resource type="Gradient" id="Gradient_core"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.2, 0.5, 0.8, 1)
+colors = PackedColorArray(1, 0.9, 0.4, 0, 2, 1.5, 0.3, 1, 1, 0.5, 0.05, 0.9, 0.6, 0.15, 0.02, 0.5, 0.2, 0.05, 0.01, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture_core"]
+gradient = SubResource("Gradient_core")
+
+[sub_resource type="Curve" id="Curve_scale"]
+_data = [Vector2(0, 0.5), 0.0, 5.0, 0, 0, Vector2(0.15, 2.5), 2.0, 2.0, 0, 0, Vector2(0.4, 1.5), -1.0, -1.0, 0, 0, Vector2(1, 0), -2.0, 0.0, 1, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_dist"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.3, 0.6), 1.5, 1.5, 0, 0, Vector2(1, 1), 0.5, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_alpha"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 0, Vector2(0.5, 0.8), -0.5, -0.5, 0, 0, Vector2(1, 0), -1.0, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_color_off"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.6), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ember"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.3, 0.7, 1)
+colors = PackedColorArray(1, 0.6, 0.1, 0, 1, 0.35, 0.05, 0.9, 0.7, 0.15, 0.02, 0.6, 0.2, 0.05, 0.01, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture_ember"]
+gradient = SubResource("Gradient_ember")
+
+[sub_resource type="Curve" id="Curve_ember_scale"]
+_data = [Vector2(0, 0.3), 0.0, 3.0, 0, 0, Vector2(0.2, 1.2), 1.0, 1.0, 0, 0, Vector2(1, 0), -1.5, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_ember_dist"]
+_data = [Vector2(0, 0), 0.0, 2.0, 0, 0, Vector2(0.4, 0.8), 1.0, 1.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_ember_alpha"]
+_data = [Vector2(0, 0.8), 0.0, -0.5, 0, 0, Vector2(0.6, 0.4), -0.5, -0.5, 0, 0, Vector2(1, 0), -0.5, 0.0, 1, 0]
+point_count = 3
+
+[node name="FireBreathFlame" type="Node2D"]
+script = ExtResource("1_group")
+autostart = false
+
+[node name="Core" type="Node2D" parent="."]
+script = ExtResource("2_burst")
+num_particles = 8
+lifetime = 0.25
+lifetime_randomness = 0.3
+repeat = false
+autostart = false
+texture = ExtResource("3_orb")
+image_scale = 0.08
+image_scale_randomness = 0.4
+gradient = SubResource("GradientTexture_core")
+blend_mode = 1
+direction = Vector2(1, 0)
+distance = 80.0
+distance_randomness = 0.5
+start_radius = 5.0
+spread_degrees = 30.0
+angle_randomness = 0.3
+distance_curve = SubResource("Curve_dist")
+scale_curve = SubResource("Curve_scale")
+alpha_curve = SubResource("Curve_alpha")
+color_offset_curve = SubResource("Curve_color_off")
+
+[node name="Embers" type="Node2D" parent="."]
+script = ExtResource("2_burst")
+num_particles = 4
+lifetime = 0.35
+lifetime_randomness = 0.5
+repeat = false
+autostart = false
+texture = ExtResource("3_orb")
+image_scale = 0.04
+image_scale_randomness = 0.5
+gradient = SubResource("GradientTexture_ember")
+blend_mode = 1
+direction = Vector2(1, 0)
+distance = 100.0
+distance_randomness = 0.6
+start_radius = 8.0
+spread_degrees = 45.0
+angle_randomness = 0.5
+distance_curve = SubResource("Curve_ember_dist")
+scale_curve = SubResource("Curve_ember_scale")
+alpha_curve = SubResource("Curve_ember_alpha")
