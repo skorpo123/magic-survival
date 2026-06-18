@@ -23,5 +23,4 @@ Download the latest build for Windows from [Releases](https://github.com/skorpo1
 ## Controls
 
 - **WASD / Arrow keys** — move
-- **Space** — dash
 - Spells cast automatically
