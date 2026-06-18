@@ -1,7 +1,0 @@
-[gd_resource type="Environment" format=3]
-
-[resource]
-tonemap_mode = 2
-tonemap_exposure = 1.0
-tonemap_white = 4.0
-glow_enabled = false
