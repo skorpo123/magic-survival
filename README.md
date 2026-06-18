@@ -8,11 +8,11 @@ Survive endless waves of enemies by collecting XP, leveling up, and choosing new
 
 ## Features
 
-- **6 base spells** — Fireball, Lightning, Ice Shard, Arcane Orb, Spirit Orb, Blade
-- **30 modifications** — 5 unique mods per spell, each with distinct mechanics
-- **19 fusion spells** — combine two spells for devastating effects (Inferno Nova, Thunderbolt, Astral Swarm, and more)
-- **Boss fights** — 5 boss types with unique attack patterns, arenas, and enrage phases
-- **Artifacts** — collectible items that grant passive bonuses and unlock synergies
+- **13 base spells** — Magic Bolt, Fireball, Orbiting Arcana, Lightning Strike, Cyclone, Arcane Ray, Electric Zone, Spirit, Shield, Fire Breath, Needle, Poison Pool, Frost Nova
+- **39 modifications** — 3 unique mods per spell, each with distinct mechanics
+- **19 fusion spells** — combine two spells for devastating effects (Inferno Nova, Thunderbolt, Astral Swarm, Firenado, Toxic Needles, and more)
+- **5 boss types** — Volt Sentinel, Blast Architect, Iron Titan, Fury Monarch, Abyss Warden with unique attack patterns, arenas, and enrage phases
+- **89 artifacts** — collectible items that grant passive bonuses, unlock synergies, and scale across Common, Uncommon, Rare, and Legendary rarities
 - **Procedural world** — chunk-based terrain with dynamic difficulty scaling
 - **Full Russian/English localization**
 
